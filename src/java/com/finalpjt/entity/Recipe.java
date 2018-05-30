@@ -35,10 +35,12 @@ public class Recipe implements Serializable {
     @Column(nullable = true)
     @Temporal(TemporalType.TIME)
     private Date preparationTime;
-    
    
     @ManyToOne
     private Category category;
+    
+    @ManyToOne
+    private User owner;
             
     public Long getId() {
         return id;
@@ -88,6 +90,15 @@ public class Recipe implements Serializable {
         this.category = category;
     }
 
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+    
         @Override
     public int hashCode() {
         int hash = 0;

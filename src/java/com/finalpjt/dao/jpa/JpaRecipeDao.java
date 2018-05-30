@@ -1,43 +1,57 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.finalpjt.dao.jpa;
 
 import com.finalpjt.dao.RecipeDao;
-import com.finalpjt.entity.Category;
-import com.finalpjt.entity.Description;
 import com.finalpjt.entity.Recipe;
 import com.finalpjt.entity.User;
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
-
+@Stateless
 public class JpaRecipeDao implements RecipeDao{
     
     @PersistenceContext
     private EntityManager em;
 
     @Override
-    public void addRecipe(Category category, Description description, Recipe recipe, User user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Recipe addRecipe(Recipe recipe) {
+        em.persist(recipe);
+        
+        return recipe;
     }
 
     @Override
-    public List<Recipe> getAllRecipe(Recipe recipe) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Recipe> getAllRecipe() {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+
+        CriteriaQuery<Recipe> query = cb.createQuery(Recipe.class);
+                
+        return em.createQuery(query).getResultList(); 
     }
 
     @Override
-    public Recipe getRecipeByUser(User user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List <Recipe> getRecipesByUser(User user) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery qu =  cb.createQuery(Recipe.class);
+        Root<Recipe> employee = qu.from(Recipe.class);
+        
+        qu.where( cb.equal(employee.get("owner") , user) );
+        
+        return em.createQuery(qu).getResultList();
     }
 
     @Override
-    public void updateRecipeUser(Recipe recipe, User user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Recipe findRecipeById(Long recipeId) {
+         return em.find(Recipe.class, recipeId);
+    }
+
+    @Override
+    public Recipe updateRecipe(Recipe recipe) {
+        return em.merge(recipe);
     }
     
 }
