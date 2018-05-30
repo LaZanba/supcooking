@@ -1,13 +1,13 @@
 package com.finalpjt.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -26,20 +26,18 @@ public class Recipe implements Serializable {
     private String name;
     
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "description_id")
     private Description description; 
     
     @Column(nullable = true)
     @Temporal(TemporalType.TIME)
-    private java.util.Date cookingTime;
+    private Date cookingTime;
     
-    @Column(nullable = true , length = 100)
+    @Column(nullable = true)
     @Temporal(TemporalType.TIME)
-    private java.util.Date preparationTime;
+    private Date preparationTime;
     
    
     @ManyToOne
-    @JoinColumn(name = "category_id")
     private Category category;
             
     public Long getId() {
@@ -66,15 +64,15 @@ public class Recipe implements Serializable {
         this.description = description;
     }
 
-    public java.util.Date getCookingTime() {
+    public Date getCookingTime() {
         return cookingTime;
     }
 
-    public void setCookingTime(java.util.Date cookingTime) {
+    public void setCookingTime(Date cookingTime) {
         this.cookingTime = cookingTime;
     }
 
-    public java.util.Date getPreparationTime() {
+    public Date getPreparationTime() {
         return preparationTime;
     }
 
@@ -112,6 +110,6 @@ public class Recipe implements Serializable {
 
     @Override
     public String toString() {
-        return "com.supcooking.entity.Recipe[ id=" + id + " ]";
+        return "com.finalpjt.entity.Recipe[ id=" + id + " ]";
     }
 }
