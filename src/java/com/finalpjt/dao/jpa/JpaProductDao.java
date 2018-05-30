@@ -9,12 +9,13 @@ import com.finalpjt.dao.ProductDao;
 import com.finalpjt.entity.Product;
 import com.finalpjt.entity.Recipe;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
-/**
- *
- * @author rakotomalala
- */
 public class JpaProductDao implements ProductDao{
+    
+    @PersistenceContext
+    private EntityManager em;
 
     @Override
     public void addProduct(Product product) {
