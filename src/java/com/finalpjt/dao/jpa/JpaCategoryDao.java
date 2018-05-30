@@ -8,9 +8,14 @@ package com.finalpjt.dao.jpa;
 import com.finalpjt.dao.CategoryDao;
 import com.finalpjt.entity.Category;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 
 public class JpaCategoryDao implements CategoryDao{
+    
+    @PersistenceContext
+    private EntityManager em;
 
     @Override
     public void addCategory(Category category) {

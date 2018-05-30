@@ -11,9 +11,14 @@ import com.finalpjt.entity.Description;
 import com.finalpjt.entity.Recipe;
 import com.finalpjt.entity.User;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 
 public class JpaRecipeDao implements RecipeDao{
+    
+    @PersistenceContext
+    private EntityManager em;
 
     @Override
     public void addRecipe(Category category, Description description, Recipe recipe, User user) {
