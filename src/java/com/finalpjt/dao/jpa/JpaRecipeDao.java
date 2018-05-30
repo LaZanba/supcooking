@@ -37,9 +37,9 @@ public class JpaRecipeDao implements RecipeDao{
     public List <Recipe> getRecipesByUser(User user) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery qu =  cb.createQuery(Recipe.class);
-        Root<Recipe> employee = qu.from(Recipe.class);
+        Root<Recipe> recipe = qu.from(Recipe.class);
         
-        qu.where( cb.equal(employee.get("owner") , user) );
+        qu.where(cb.equal(recipe.get("owner"), user));
         
         return em.createQuery(qu).getResultList();
     }
