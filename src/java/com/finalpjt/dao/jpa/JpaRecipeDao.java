@@ -20,7 +20,6 @@ public class JpaRecipeDao implements RecipeDao{
     @Override
     public Recipe addRecipe(Recipe recipe) {
         em.persist(recipe);
-        
         return recipe;
     }
 
@@ -34,7 +33,7 @@ public class JpaRecipeDao implements RecipeDao{
     }
 
     @Override
-    public List <Recipe> getRecipesByUser(User user) {
+    public List<Recipe> getRecipesByUser(User user) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery qu =  cb.createQuery(Recipe.class);
         Root<Recipe> recipe = qu.from(Recipe.class);
@@ -46,7 +45,7 @@ public class JpaRecipeDao implements RecipeDao{
 
     @Override
     public Recipe findRecipeById(Long recipeId) {
-         return em.find(Recipe.class, recipeId);
+        return em.find(Recipe.class, recipeId);
     }
 
     @Override

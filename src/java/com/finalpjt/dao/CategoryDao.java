@@ -17,6 +17,6 @@ public interface CategoryDao {
     
     public void updateCategory(Category category);
     
-    public Category findCategoryById(Category category);
+    public Category findCategoryById(Long id);
        
 }

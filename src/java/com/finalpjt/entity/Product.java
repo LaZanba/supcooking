@@ -61,6 +61,16 @@ public class Product implements Serializable {
         this.quantity = quantity;
     }
 
+    public Recipe getCoockingRecipe() {
+        return coockingRecipe;
+    }
+
+    public void setCoockingRecipe(Recipe coockingRecipe) {
+        this.coockingRecipe = coockingRecipe;
+    }
+    
+    
+
     
     @Override
     public int hashCode() {
