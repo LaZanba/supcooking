@@ -18,12 +18,13 @@ public class JpaUserDao implements UserDao{
 
     @Override
     public void addUser(User user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        em.persist(user);
     }
 
     @Override
-    public User getUser(User user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public User getUser(Long userId) {
+        return em.find(User.class, userId);
     }
+        
     
 }

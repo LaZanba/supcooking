@@ -10,6 +10,8 @@ import com.finalpjt.entity.Category;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
 
 
 public class JpaCategoryDao implements CategoryDao{
@@ -19,22 +21,28 @@ public class JpaCategoryDao implements CategoryDao{
 
     @Override
     public void addCategory(Category category) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        em.persist(category);
     }
 
     @Override
     public List<Category> getAllCategory() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        
+        CriteriaQuery<Category> query = cb.createQuery(Category.class);
+
+        return em.createQuery(query).getResultList(); 
     }
 
     @Override
     public void updateCategory(Category category) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       em.merge(category);
     }
 
     @Override
-    public Category findCategoryById(Category category) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Category findCategoryById(Long categoryId) {
+        return em.find(Category.class, categoryId);
     }
+
+    
     
 }

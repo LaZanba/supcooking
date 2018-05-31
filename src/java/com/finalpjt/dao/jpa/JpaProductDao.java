@@ -11,6 +11,9 @@ import com.finalpjt.entity.Recipe;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 public class JpaProductDao implements ProductDao{
     
@@ -18,18 +21,25 @@ public class JpaProductDao implements ProductDao{
     private EntityManager em;
 
     @Override
-    public void addProduct(Product product) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Product addProduct(Product product) {
+        em.persist(product);
+        return product;
     }
 
     @Override
     public List<Product> getAllProductRecipe(Recipe recipe) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery qu = cb.createQuery(Product.class);
+        Root<Product> product = qu.from(Product.class);
+        
+        qu.where(cb.equal(product.get("coockingRecipe"), recipe));
+        
+        return em.createQuery(qu).getResultList();
     }
 
     @Override
     public void updateProduct(Product product) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        em.merge(product);
     }
     
 }
