@@ -4,7 +4,9 @@ package com.finalpjt.dao;
 import com.finalpjt.entity.Recipe;
 import com.finalpjt.entity.User;
 import java.util.List;
+import javax.ejb.Local;
 
+@Local
 public interface RecipeDao {
     
     public Recipe addRecipe(Recipe recipe);

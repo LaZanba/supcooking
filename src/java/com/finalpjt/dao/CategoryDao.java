@@ -7,8 +7,9 @@ package com.finalpjt.dao;
 
 import com.finalpjt.entity.Category;
 import java.util.List;
+import javax.ejb.Local;
 
-
+@Local
 public interface CategoryDao {
     
     public void addCategory(Category category);

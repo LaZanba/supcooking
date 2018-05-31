@@ -6,14 +6,13 @@
 package com.finalpjt.dao;
 
 import com.finalpjt.entity.User;
+import javax.ejb.Local;
 
-
+@Local
 public interface UserDao {
     
     public void addUser(User user);
     
     public User getUser(Long id);
-    
-    
     
 }
