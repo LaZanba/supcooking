@@ -1,5 +1,5 @@
 
-package java.finalpjt.beans;
+package com.finalpjt.beans;
 
 import java.util.Date;
 

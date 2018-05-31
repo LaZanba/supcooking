@@ -1,4 +1,4 @@
-package java.finalpjt.beans;
+package com.finalpjt.beans;
 
 public class RecipeController {
 
