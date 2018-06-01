@@ -7,6 +7,22 @@
     </h:head>
     <h:body>
         Hello (page register new User)
+        <h:form>
+            <label>Fist Name</label>
+            <h:inputText id="firstname" value="#{userController.firstName}" required="true" />
+            
+            <label>Last Name</label>
+            <h:inputText id="lastname" value="#{userController.lastName}" required="true" />
+            
+            <label>Adresse</label>
+            <h:inputText id="adresse" value="#{userController.address}" required="true" />
+            
+            <label>Login</label>
+            <h:inputText id="login" value="#{userController.login}" required="true" />
+            
+            <label>Password</label>
+            <h:inputText id="password" value="#{userController.password}" required="true" />
+        </h:form>
     </h:body>
 </html>
 
