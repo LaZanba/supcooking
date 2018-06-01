@@ -8,12 +8,13 @@ package com.finalpjt.dao.jpa;
 import com.finalpjt.dao.CategoryDao;
 import com.finalpjt.entity.Category;
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
-
+@Stateless
 public class JpaCategoryDao implements CategoryDao{
     
     @PersistenceContext
