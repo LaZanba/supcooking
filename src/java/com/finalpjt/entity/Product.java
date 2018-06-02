@@ -94,7 +94,7 @@ public class Product implements Serializable {
 
     @Override
     public String toString() {
-        return "com.supcooking.entity.Product[ id=" + id + " ]";
+        return "ID: " + this.id + " NAME : " + this.name;
     }
     
 }
