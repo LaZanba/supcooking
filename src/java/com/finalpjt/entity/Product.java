@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -94,7 +95,7 @@ public class Product implements Serializable {
 
     @Override
     public String toString() {
-        return "ID: " + this.id + " NAME : " + this.name;
+        return "ID: " + this.id + "NAME : " + this.name;
     }
     
 }

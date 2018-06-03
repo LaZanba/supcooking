@@ -6,12 +6,12 @@
     <managed-bean>
         <managed-bean-name>RecipeController</managed-bean-name>
         <managed-bean-class>com.finalpjt.beans.RecipeController</managed-bean-class>
-    
-        <managed-bean-scope>request</managed-bean-scope></managed-bean>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
     
     <managed-bean>
         <managed-bean-name>userController</managed-bean-name>
         <managed-bean-class>com.finalpjt.beans.UserController</managed-bean-class>
-    
-        <managed-bean-scope>request</managed-bean-scope></managed-bean>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
 </faces-config>

@@ -29,5 +29,9 @@ public class ProductService {
     public void updateProduct(Product product) {
         productDao.updateProduct(product);
     }
+
+    public Product findProductById(Long id) {
+        return productDao.findProductById(id);
+    }
      
 }

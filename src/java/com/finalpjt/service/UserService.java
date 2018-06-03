@@ -22,6 +22,9 @@ public class UserService {
     }
     
     public User getUser(Long userId) {
+        
+        System.out.println(userId);
+        
         return userDao.getUser(userId);
     }
     
