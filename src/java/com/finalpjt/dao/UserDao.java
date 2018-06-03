@@ -15,4 +15,7 @@ public interface UserDao {
     
     public User getUser(Long id);
     
+    public User getConnecteUser(String userName,String password);
+    
+    
 }

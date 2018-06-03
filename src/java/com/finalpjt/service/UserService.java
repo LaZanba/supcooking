@@ -25,4 +25,9 @@ public class UserService {
         return userDao.getUser(userId);
     }
     
+    public User getConnecteUser(String userName, String password) {
+        return userDao.getConnecteUser(userName, password);
+    }
+    
+    
 }

@@ -6,7 +6,15 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        Hello (page login)
+        <h:form>
+            <label>User Name</label>
+            <h:inputText id="username" value="#{userController.login}" required="true" />
+            
+            <label>Password</label>
+            <h:inputText id="password" value="#{userController.password}" required="true" />
+            
+            <h:commandButton value="Log in" action="#{userController.loginAction()}" />
+        </h:form>
     </h:body>
 </html>
 
