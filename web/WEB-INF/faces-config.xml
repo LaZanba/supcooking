@@ -14,4 +14,20 @@
         <managed-bean-class>com.finalpjt.beans.UserController</managed-bean-class>
     
         <managed-bean-scope>request</managed-bean-scope></managed-bean>
+        
+        <navigation-rule>
+            <from-view-id>/register.xhtml</from-view-id>
+            <navigation-case>
+                <from-outcome>access</from-outcome>
+                <to-view-id>/loginPage.xhtml</to-view-id>
+            </navigation-case>
+        </navigation-rule>
+        
+        <navigation-rule>
+            <from-view-id>/loginPage.xhtml</from-view-id>
+            <navigation-case>
+                <from-outcome>access</from-outcome>
+                <to-view-id>/index.xhtml</to-view-id>
+            </navigation-case>
+        </navigation-rule>
 </faces-config>

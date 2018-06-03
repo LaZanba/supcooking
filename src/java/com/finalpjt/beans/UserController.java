@@ -3,6 +3,7 @@ package com.finalpjt.beans;
 
 import com.finalpjt.entity.User;
 import com.finalpjt.service.UserService;
+
 import javax.ejb.EJB;
 
 
@@ -15,17 +16,40 @@ public class UserController {
     private String password;
     private String address;
     
+    
     @EJB
     private UserService userService;
     
     public UserController() {}
     
-    public void addUser() {
-        
+    public String register() {
+        try {
+            User user = new User();
+            user.setFirstname(firstName);
+            user.setLastname(lastName);
+            user.setLogin(login);
+            user.setPassword(password);
+            user.setAddress(address);
+            userService.addUser(user);
+            
+            return "access";
+        } catch(Exception e) {
+            e.printStackTrace();
+            return "denied";
+        }
     }
     
-    public User getUser() {
-        return null;
+    public String loginAction() {
+        try {
+            User user;
+            if(login != null && password != null) {
+                user = userService.getConnecteUser(lastName, password);
+            } 
+            return "access";
+        } catch(Exception e) {
+            e.printStackTrace();
+            return "denied";
+        }  
     }
     
     public Long getIdUser() {
@@ -64,6 +88,15 @@ public class UserController {
     public void setAddress(String address) {
         this.address = address;
     }
+    
+    public UserService getUserService() {
+        return userService;
+    }
+
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+    
     
     
     
