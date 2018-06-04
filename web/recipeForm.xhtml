@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+       <h1>Recipe Form</h1>
+       
+       <h:form>
+           <h3>Category</h3>
+            <h:inputText id="category" value="" required="true" />
+            <h:commandButton value="New"/>
+           
+           <h3>Produit</h3>
+            <label>Name</label>
+            <h:inputText id="name" value="" required="true" />
+            
+            <label>quantity</label>
+            <h:inputText id="quantity" value="" required="true" />
+            
+            <h3>Time</h3>
+            <label>time preparation</label>
+            <h:inputText id="preparation" value="" required="true" /> 
+            
+            <label>time cooking</label>
+            <h:inputText id="cooking" value="" required="true" /> 
+            
+            <h3>Description</h3>
+            <label>Content</label>
+            <h:inputText id="content" value="" required="true" /> 
+            <label>Picture</label>
+            <h:inputText id="picture" value="" required="true" /> 
+            
+            <h:commandButton value="Create Recipe"/>
+       </h:form>
+    </h:body>
+</html>
+
