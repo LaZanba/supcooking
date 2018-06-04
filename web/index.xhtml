@@ -12,6 +12,10 @@
                 <li><h:outputLink value="loginPage.jsf"> Login </h:outputLink></li>
             </ul>
         </h:panelGroup>
+        <h:panelGroup rendered="#{userController.isLogged()}">
+            <h:outputText value="#{userId}" />
+            <h:commandButton value="Logout" action="#{userController.logoutAction()}" />
+        </h:panelGroup>
     </h:body>
 </html>
 

@@ -3,10 +3,14 @@ package com.finalpjt.beans;
 
 import com.finalpjt.entity.User;
 import com.finalpjt.service.UserService;
+import javax.annotation.ManagedBean;
 
 import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 
-
+@ManagedBean
+@RequestScoped
 public class UserController {
 
     private Long idUser;
@@ -15,6 +19,8 @@ public class UserController {
     private String login;
     private String password;
     private String address;
+    
+    private boolean logged=false;
     
     
     @EJB
@@ -31,7 +37,7 @@ public class UserController {
             user.setPassword(password);
             user.setAddress(address);
             userService.addUser(user);
-            
+           
             return "access";
         } catch(Exception e) {
             e.printStackTrace();
@@ -43,13 +49,27 @@ public class UserController {
         try {
             User user;
             if(login != null && password != null) {
-                user = userService.getConnecteUser(lastName, password);
+                user = userService.getConnecteUser(login, password);
+                FacesContext context = FacesContext.getCurrentInstance();
+                context.getExternalContext().getSessionMap().put("userId", user.getId());
+                logIn();
             } 
             return "access";
         } catch(Exception e) {
             e.printStackTrace();
             return "denied";
         }  
+    }
+    
+    public String logoutAction() {
+        try {
+            logOut();
+            FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+            return "access";
+        } catch(Exception e) {
+            e.printStackTrace();
+            return "denied";
+        }
     }
     
     public Long getIdUser() {
@@ -95,6 +115,16 @@ public class UserController {
 
     public void setUserService(UserService userService) {
         this.userService = userService;
+    }
+    
+    public boolean isLogged() {
+        return logged;
+    }
+    public void logIn() {
+        logged=true;  
+    }
+    public void logOut() {
+        logged=false;
     }
     
     
