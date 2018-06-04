@@ -36,7 +36,7 @@ public class JpaUserDao implements UserDao{
                 cb.equal(user.get("password"), password)
        );
        
-       return (User) em.createQuery(qu).getResultList().get(0);
+       return (User) em.createQuery(qu).getSingleResult();
     }
     
     

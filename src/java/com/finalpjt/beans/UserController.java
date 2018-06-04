@@ -49,7 +49,7 @@ public class UserController {
         } catch(Exception e) {
             e.printStackTrace();
             return "denied";
-        }  
+        }
     }
     
     public Long getIdUser() {
@@ -96,11 +96,5 @@ public class UserController {
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
-    
-    
-    
-    
-    
-    
-    
+     
 }
