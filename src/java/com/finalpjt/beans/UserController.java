@@ -126,11 +126,5 @@ public class UserController {
     public void logOut() {
         logged=false;
     }
-    
-    
-    
-    
-    
-    
-    
+        
 }
