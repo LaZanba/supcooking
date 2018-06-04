@@ -38,5 +38,10 @@ public class JpaProductDao implements ProductDao{
     public void updateProduct(Product product) {
         em.merge(product);
     }
+
+    @Override
+    public Product findProductById(Long id) {
+        return em.find(Product.class, id);
+    }
     
 }

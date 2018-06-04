@@ -18,6 +18,8 @@ public interface ProductDao {
     public List<Product> getAllProductRecipe(Recipe recipe);
     
     public void updateProduct(Product product);
+
+    public Product findProductById(Long id);
     
     
     
